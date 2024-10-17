@@ -109,7 +109,18 @@ Outline the project timeline, including milestones or deliverables. Example:
 - *Week 1-2*: Collaborative Brainstorming for Feature Development.
 - 08/15/2024
 - https://youtu.be/Q0Lmwx-D8NQ
-- Propose Features
+- Propose Features:
+- Client Satisfactory
+- Reciept of payments
+- Overbooking of Customers
+- Payment Methods
+- User LogIn
+- Notification of User
+- Appointment Reminders
+- Barber's Portfolio
+- Customer Reviews
+- Client Information
+  
 - *Week 3-5*: Design and setup.
 - *Week 6-10*: Implementation.
 - *Week 11-12*: Testing and debugging.
