@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: ./  # Points to the current directory where the Dockerfile is
+      dockerfile: Dockerfile
+    container_name: php-app
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - db
+    networks:
+      - app-network
+    restart: always
+
+  db:
+    image: mysql:5.7
+    container_name: mysql-db
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password_here  # Root password for MySQL
+      MYSQL_DATABASE: barbershop               # Database to be created
+      MYSQL_USER: barber_user                  # New MySQL user
+      MYSQL_PASSWORD: barber_password_here     # Password for new user
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql  # Named volume for MySQL data persistence
+      - ./barbershop_db.sql:/docker-entrypoint-initdb.d/barbershop_db.sql  # SQL file for initial setup
+    networks:
+      - app-network
+    restart: always
+
+volumes:
+  db_data: {}
+
+networks:
+  app-network:
